@@ -1,4 +1,4 @@
-$(document).ready(function(){
+	$(document).ready(function(){
 
 
 var updatedTag = ["soccer","sock","watermelon","chocolate","italian food","spongebob"];
@@ -48,7 +48,7 @@ $("#submit").click(function(event){
 		updatedTag.push(topic);
 		updateTag();
 		}
-		
+		console.log(response)
 		var panel = $("<div>");
 		panel.addClass("panel panel-default");
 		panel.attr("name-data",topic)
@@ -71,8 +71,9 @@ $("#submit").click(function(event){
 		}
 
 		panel.append(panelBody);
+		panel.hide();
 		$("#results").prepend(panel)
-
+		panel.fadeIn(1000)
 	})
 })
 
@@ -105,7 +106,7 @@ $("#clear").click(function(){
 		}
 	});
 
-	$(".tag").on('click', function(event){
+	$("body").on('click','.tag', function(event){
 		event.preventDefault();
 
 
@@ -134,7 +135,7 @@ $("#clear").click(function(){
 
 		var panelHead = $("<div>");
 		panelHead.addClass("panel-heading")
-		panelHead.html("<b>Topic: </b>" + topic+ "&nbsp; &nbsp; &nbsp;" + "<b>Limit: </b>" + limit + "&nbsp; &nbsp; &nbsp;" + "<b>Rating: </b>" + rating);
+		panelHead.html("<b>Tag: </b>" + topic+ "&nbsp; &nbsp; &nbsp;" + "<b>Limit: </b>" + limit + "&nbsp; &nbsp; &nbsp;" + "<b>Rating: </b>" + rating);
 		panel.append(panelHead);
 
 		var panelBody = $("<div>");
@@ -150,7 +151,9 @@ $("#clear").click(function(){
 		}
 
 		panel.append(panelBody);
+		panel.hide();
 		$("#results").prepend(panel)
+		panel.fadeIn(1000)
 
 		})
 	})
