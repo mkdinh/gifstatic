@@ -156,6 +156,7 @@ function updateTag(){
 }
 
 function updateGIF(response){
+	topic = topic.replace(/\s/g,'');
 	var panel = $("<div>");
 	panel.addClass("panel panel-default");
 	panel.attr("name-data",topic)
@@ -196,10 +197,10 @@ function updateGIF(response){
 			imgContainer.addClass("imgContainer");
 			var ratingText = $("<div>");
 			ratingText.addClass("ratingText");
-			ratingText.attr("id","item-"+i)
+			ratingText.attr("id",topic+"-item-"+i)
 			ratingText.text(response.data[i].rating.toUpperCase())
 			var imgEl = $("<img>");
-			imgEl.attr("data-num","item-"+i)
+			imgEl.attr("data-num",topic+"-item-"+i)
 			imgEl.addClass("gif img-thumbnail")
 			imgEl.attr("data-state","still")
 			imgEl.attr("data-still",response.data[i].images.fixed_width_still.url)
